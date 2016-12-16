@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JobBundle:Admin:admin{% endblock %}
+
+{% block body %}
+    <h1>new menu</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('innonic_job_menu_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
+

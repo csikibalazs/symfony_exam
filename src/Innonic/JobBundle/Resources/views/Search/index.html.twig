@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JobBundle:Search:index{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Search:index page</h1>
+
+    <div id="jobs">
+            <div class="category">
+                <table class="jobs">
+                    <tbody>
+                    {% for result in results %}
+                        <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+                            <td class="location">
+                                {{ result.location }}
+                            </td>
+                            <td class="position">
+                                <a href="{{ path('innonic_job_job_show', {slug: result.slug}) }}">{{ result.title }}</a>
+                            </td>
+                            <td class="company">
+                                {{ result.company }}
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+{% endblock %}

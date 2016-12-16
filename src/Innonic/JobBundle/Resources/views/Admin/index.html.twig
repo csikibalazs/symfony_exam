@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JobBundle:Admin:admin{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Admin: page</h1>
+    <div class="category">
+        <table class="jobs">
+            <tbody>
+            {% for job in jobs %}
+                <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+                    <td class="location">
+                        {{ job.location }}
+                    </td>
+                    <td class="position">
+                        <a href="{{ path('innonic_job_job_edit', {id: job.id}) }}">edit</a>
+                        <a href="{{ path('innonic_job_job_delete', {id: job.id}) }}">delete</a>
+                    </td>
+                    <td class="company">
+                        {{ job.company }}
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

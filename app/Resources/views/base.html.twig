@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Job portal</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/job/css/main.css') }}">
+    {% block css %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/job/css/jobs.css') }}">
+    {% endblock %}
+</head>
     <body>
+    <div id="container">
+        {% block header %}
+            {{ include('::_header.html.twig') }}
+        {% endblock %}
+        <div id="content">
+            <div class="content">
         {% block body %}{% endblock %}
+            </div>
+        </div>
+        {% block footer %}
+            {{ include('::_footer.html.twig') }}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
+    </div>
     </body>
 </html>

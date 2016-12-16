@@ -1,0 +1,40 @@
+<div id="header">
+    <div class="nav">
+        <ul>
+            <li><a href="{{ path('innonic_job_user_login') }}">Login</a></li>
+            <li><a href="{{ path('innonic_job_user_register') }}">Registration</a></li>
+        </ul>
+    </div>
+    <div class="nav-menu">
+        {{ render(controller('JobBundle:Menu:index', {position: 'header'})) }}
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="content">
+        <h1>
+            <a href="{{ path('innonic_job_job_index') }}"><img src="/bundles/job/images/jobz.gif"></a>
+        </h1>
+        <div id="sub_header">
+            <div class="post">
+                <h2>
+                    Ask for people
+                </h2>
+                <div>
+                    <a href="{{ path('innonic_job_job_new') }}">Post a Job</a>
+                </div>
+            </div>
+            <div class="search">
+                <img src="/bundles/job/images/ask.png" alt="ask">
+                <h2>
+                    Ask for a job
+                </h2>
+                <form action="{{ path('innonic_job_search_index') }}" method="get">
+                    <input name="keywords" id="search_keywords" class="input" type="text"><input value="search" src="/bundles/job/images/search.png" class="but_search" type="image">
+                    <div class="help">
+                        Enter some keywords (city, country, position, ...)
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

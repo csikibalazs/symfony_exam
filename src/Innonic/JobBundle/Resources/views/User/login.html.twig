@@ -1,0 +1,42 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JobBundle:Admin:login{% endblock %}
+
+{% block body %}
+
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+    <h1>
+        Login
+    </h1>
+    <form method="post" action="{{ path('innonic_job_user_logincheck') }}" enctype="multipart/form-data">
+        <table id="job_form">
+            <tfoot>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">login</button>
+                </td>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr>
+                <th>
+                    <label for="username">Username</label>
+                </th>
+                <td>
+                    <input type="text" name="_username" id="username" value="{{ last_username }}" />
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="password">Password</label>
+                </th>
+                <td>
+                    <input type="password" name="_password" id="password" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('bundles/job/css/job.css') }}">
+{% endblock %}
+{% block body %}
+<div id="job">
+    <h1>
+        {{ job.company }}
+    </h1>
+    <h2>
+        {{ job.location }}
+    </h2>
+    <h3>
+        {{ job.position }} <small>- {{ job.type }}</small>
+    </h3>
+    <div class="description">
+        {{ job.description }}
+    </div>
+    <h4>
+        How to apply?
+    </h4>
+    <p class="how_to_apply">
+        {{ job.application }} {{ job.email }}
+    </p>
+    <div class="meta">
+        <small>posted on 12/05/2008</small>
+    </div>
+</div>
+{% endblock %}

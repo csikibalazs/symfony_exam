@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Menus list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Link</th>
+                <th>Publish</th>
+                <th>Position</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td><a href="{{ path('innonic_job_adminmenu_show', { 'id': menu.id }) }}">{{ menu.id }}</a></td>
+                <td>{{ menu.name }}</td>
+                <td>{{ menu.link }}</td>
+                <td>{{ menu.publish }}</td>
+                <td>{{ menu.position }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('innonic_job_adminmenu_show', { 'id': menu.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('innonic_job_adminmenu_edit', {id: menu.id}) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JobBundle:Job:Index{% endblock %}
+
+{% block body %}
+
+            <div id="jobs">
+                {% for category in jobCategories %}
+                    <div class="category_{{ category.name }}">
+                        <div class="category">
+                            <h1>
+                                <a href="{{ path('innonic_job_job_categorylist', {slug: category.slug}) }}">{{ category.name }}</a>
+                            </h1>
+                        </div>
+                        <table class="jobs">
+                            <tbody>
+                            {% for job in category.jobs %}
+                                <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+                                    <td class="location">
+                                        {{ job.location }}
+                                    </td>
+                                    <td class="position">
+                                        <a href="{{ path('innonic_job_job_show', {slug: job.slug}) }}">{{ job.title }}</a>
+                                    </td>
+                                    <td class="company">
+                                        {{ job.company }}
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+{% endblock %}
